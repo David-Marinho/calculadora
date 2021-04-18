@@ -1,13 +1,11 @@
-﻿using System;
+using System;
 
     class program
     {
         public static void Main(String[] args)
         {
-            Operacao op = new Operacao();
-
-            String escolha;
-            double num1, num2, resultado;
+            char escolha;
+            double num1, num2;
 
             Console.Write("digite um numero: ");
             num1 = Convert.ToDouble(Console.ReadLine());
@@ -16,28 +14,29 @@
             num2 = Convert.ToDouble(Console.ReadLine());
 
             Console.Write("[+]somar \n[-]subtrair \n[*]multiplicar \n[/]dividir \n escolha a operaçao: ");
-            escolha = Console.ReadLine();
+            escolha = Convert.ToChar(Console.ReadLine());
 
-            if(string.Equals(escolha, "+"))
+            switch(escolha)
             {
-                resultado = op.somar(num1, num2);
-            }
+                case '+':
+                    Console.WriteLine("a soma é igual a: "+ (num1 + num2));
+                break;
 
-            else if(string.Equals(escolha, "-"))
-            {
-                resultado = op.subtrair(num1, num2);
-            }
+                case '-':
+                    Console.WriteLine("a subtração é igual a: "+ (num1 - num2));
+                break;
 
-             else if(string.Equals(escolha, "*"))
-            {
-                resultado = op.multiplicar(num1, num2);
-            }
+                case '*':
+                    Console.WriteLine("a multiplicação é igual a: "+ (num1 * num2));
+                break;
 
-             else
-            {
-                resultado = op.dividir(num1, num2);
-            }
-            Console.WriteLine("o resultado é igual a: "+ resultado);
+                case '/':
+                    Console.WriteLine("a divisão é igual a: "+ (num1 / num2));
+                break;
 
+                default:
+                    Console.WriteLine("voce digitou errado. Por favor, reinicie o programa e tente novamente.");
+                break;
+            }
         }
     }
